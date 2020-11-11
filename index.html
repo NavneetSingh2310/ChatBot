@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aptean PDT Chat-Bot</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body onload=start() style="margin-right: 10%; margin-left: 10%;">
+    <img src="Aptean Logo.PNG" style=" margin-left:40%;">
+    <div id="chatbox" style="max-height: 430px;scroll-behavior: smooth; overflow-y:scroll;">
+        <div id=" chat"></div>
+
+    </div>
+    <div class="footer">
+        <p>*Select option</p>
+    </div>
+
+</body>
+<script>
+    function start() {
+        var chat = document.getElementById('chatbox');
+        var mainDiv = document.createElement('div');
+        var OptionDiv = document.createElement('div');
+        OptionDiv.className = "OptionDiv";
+        var label = document.createElement('label');
+        label.innerHTML = 'Hi, welcome to Aptean PDT information center';
+        label.style.fontSize = "100%";
+        var projectBtn = document.createElement('button');
+        projectBtn.innerHTML = 'All PDT Projects';
+        projectBtn.className = "btn btn-info";
+        projectBtn.style.margin = "5px";
+        var managerDetails = document.createElement('button');
+        managerDetails.innerHTML = 'Manager Details';
+        managerDetails.className = "btn btn-info";
+        managerDetails.style.margin = "5px";
+        var teamDetails = document.createElement('button');
+        teamDetails.innerHTML = 'Team Details';
+        teamDetails.className = "btn btn-info";
+        teamDetails.style.margin = "5px";
+        var br = document.createElement('br');
+        OptionDiv.appendChild(label);
+        OptionDiv.appendChild(br);
+        // OptionDiv.appendChild(projectBtn);
+        // OptionDiv.appendChild(managerDetails);
+        // OptionDiv.appendChild(teamDetails);
+        mainDiv.appendChild(OptionDiv);
+
+        mainDiv.style.minWidth = "100%";
+        chat.appendChild(mainDiv);
+        userOption();
+    }
+    function EnterQuery() {
+        var chat = document.getElementById('chatbox');
+        var query = document.getElementById('Query');
+        var OptionDiv = document.createElement('div');
+        var label = document.createElement('label');
+        var br = document.createElement('br');
+        label.innerHTML = query.value;
+        OptionDiv.appendChild(label);
+        OptionDiv.className = "text-right";
+        chat.appendChild(OptionDiv);
+        setTimeout(start, 2);
+    }
+    function userOption() {
+        var chat = document.getElementById('chatbox');
+        var mainDiv = document.createElement('div');
+        var OptionDiv = document.createElement('div');
+        OptionDiv.className = "OptionDiv";
+        var projectBtn = document.createElement('button');
+        projectBtn.innerHTML = 'All PDT Projects';
+        projectBtn.className = "btn btn-info";
+        projectBtn.style.margin = "5px";
+        projectBtn.id = "ProjectBtn";
+
+        projectBtn.addEventListener("click", function () {
+            ListProjects();
+
+        });
+        var managerDetails = document.createElement('button');
+        managerDetails.innerHTML = 'Manager Details';
+        managerDetails.className = "btn btn-info";
+        managerDetails.style.margin = "5px";
+        var teamDetails = document.createElement('button');
+        teamDetails.innerHTML = 'Team Details';
+        teamDetails.className = "btn btn-info";
+        teamDetails.style.margin = "5px";
+        OptionDiv.className = "text-right";
+        OptionDiv.appendChild(projectBtn);
+        OptionDiv.appendChild(managerDetails);
+        OptionDiv.appendChild(teamDetails);
+        chat.appendChild(OptionDiv);
+
+    }
+
+    function ListProjects() {
+        var chat = document.getElementById('chatbox');
+        var OptionDiv = document.createElement('div');
+        OptionDiv.className = "OptionDiv";
+        OptionDiv.innerHTML = "<ol>" +
+            "<li>bcEdi</li>" +
+            "<li>bcERP</li>" +
+            "<li>bcMobile</li>" +
+            "<li>bcPackAndShip</li>";
+        var mainDiv = document.createElement('div');
+        mainDiv.appendChild(OptionDiv);
+        chat.appendChild(mainDiv);
+        setTimeout(userOption, 1000);
+
+    }
+</script>
+
+
+</html>
