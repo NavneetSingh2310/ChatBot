@@ -1,0 +1,15 @@
+.OptionDiv{
+    max-width: 50%;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+.footer{
+    position: -webkit-sticky;
+    position: sticky;
+    color: #6b6666;
+    bottom: 0;
+
+}
